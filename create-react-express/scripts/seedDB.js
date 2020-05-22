@@ -8,19 +8,19 @@ let ForgetMeNotSeed = [
     {
         items: {
             name: "Oven off",
-            last_check: new Date().setDate(new Date().getDate())
+            last_check: new Date().setDate(new Date().getDate().toString())
         }
     },
     {
         items: {
             name: "Pantry closed",
-            last_check: new Date().setDate(new Date().getDate())
+            last_check: new Date().setDate(new Date().getDate().toString())
         }
     },
     {
         items: {
             name: "Front door locked",
-            last_check: new Date().setDate(new Date().getDate())
+            last_check: new Date().setDate(new Date().getDate().toString())
         }
     },
 ];
