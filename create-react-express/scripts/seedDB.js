@@ -1,8 +1,8 @@
 let mongoose = require("mongoose");
 let db = require("../models");
 
-// const MONGODB_URI = process.env.MONGODB_URI || "mongodb://WorkoutTrackerUser:WorkoutTrackerPW1@ds235840.mlab.com:35840/heroku_6ml9v6vw"
-// mongoose.connect(MONGODB_URI);
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://user1:password1@ds115595.mlab.com:15595/heroku_tsxmp9w7"
+mongoose.connect(MONGODB_URI);
 
 let ForgetMeNotSeed = [
     {
