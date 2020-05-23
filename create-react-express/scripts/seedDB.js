@@ -6,19 +6,19 @@ mongoose.connect(MONGODB_URI);
 
 let ForgetMeNotSeed = [
     {
-        items: {
+        checklist: {
             name: "Oven off",
             last_check: new Date().setDate(new Date().getDate().toString())
         }
     },
     {
-        items: {
+        checklist: {
             name: "Pantry closed",
             last_check: new Date().setDate(new Date().getDate().toString())
         }
     },
     {
-        items: {
+        checklist: {
             name: "Front door locked",
             last_check: new Date().setDate(new Date().getDate().toString())
         }

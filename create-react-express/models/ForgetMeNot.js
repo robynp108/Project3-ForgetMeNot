@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const ForgetMeNotSchema = new Schema({
-    items: [{
+    checklist: [{
         name: {
             type: String,
             trim: true,
