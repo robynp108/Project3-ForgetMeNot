@@ -1,3 +1,3 @@
 module.exports = {
-    ForgetMeNot: require("./ForgetMeNot")
+    Concern: require("./Concern")
 };

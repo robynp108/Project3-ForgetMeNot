@@ -4,29 +4,23 @@ let db = require("../models");
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://user1:password1@ds115595.mlab.com:15595/heroku_tsxmp9w7"
 mongoose.connect(MONGODB_URI);
 
-let ForgetMeNotSeed = [
+let concernSeed = [
     {
-        checklist: {
-            name: "Oven off",
-            last_check: new Date().setDate(new Date().getDate().toString())
-        }
+        name: "Oven off",
+        last_check: "never"
     },
     {
-        checklist: {
-            name: "Pantry closed",
-            last_check: new Date().setDate(new Date().getDate().toString())
-        }
+        name: "Pantry closed",
+        last_check: "never"
     },
     {
-        checklist: {
-            name: "Front door locked",
-            last_check: new Date().setDate(new Date().getDate().toString())
-        }
-    },
+        name: "Front door locked",
+        last_check: "never"
+    }
 ];
 
-mongoose.connection.dropCollection("items")
-  .then(() => db.ForgetMeNot.collection.insertMany(ForgetMeNotSeed))
+mongoose.connection.dropCollection("concerns")
+  .then(() => db.Concern.collection.insertMany(concernSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);
