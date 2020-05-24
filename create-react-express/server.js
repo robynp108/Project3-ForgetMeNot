@@ -24,7 +24,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Send every request to the React app
-app.get("/api/checklist", (req, res) => {
+app.get("/api/concerns", (req, res) => {
   db.ForgetMeNot.find({}, (error, data) => {
       if (error) {
           res.send(error);
