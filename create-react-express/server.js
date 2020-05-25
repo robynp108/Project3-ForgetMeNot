@@ -35,8 +35,18 @@ app.get("/concerns", (req, res) => {
 });
 
 app.put("/concerns/:id", (req, res) => {
-  db.Concern.findByIdAndUpdate(req.params.id, {$set: {last_check: req.body.last_check}});
-  res.send(req.body.last_check);
+  db.Concern.findById(req.params.id, async (error, data) => {
+    if (error) {
+      res.send(error);
+    } else {
+      data.last_check = req.body.last_check;
+      await data.save();
+      res.json(data);
+    }
+  });
+  // const mongooseId = new mongoose.Types.ObjectId(req.params.id);
+  // db.Concern.findByIdAndUpdate(req.params.id, {$set: {last_check: req.body.last_check}});
+  // res.send(req.body.last_check);
 });
 
 // Define any API routes before this runs
