@@ -1,5 +1,5 @@
 const express = require("express");
-const logger = require("morgan");
+// const logger = require("morgan");
 const mongoose = require("mongoose");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
@@ -8,7 +8,7 @@ const db = require("./models");
 
 const app = express();
 
-app.use(logger("dev"));
+// app.use(logger("dev"));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -24,14 +24,19 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Send every request to the React app
-app.get("/api/concerns", (req, res) => {
-  db.ForgetMeNot.find({}, (error, data) => {
+app.get("/concerns", (req, res) => {
+  db.Concern.find({}, (error, data) => {
       if (error) {
           res.send(error);
       } else {
           res.json(data);
       }
   });
+});
+
+app.put("/concerns/:id", (req, res) => {
+  db.Concern.findByIdAndUpdate(req.params.id, {$set: {last_check: req.body.last_check}});
+  res.send(req.body.last_check);
 });
 
 // Define any API routes before this runs

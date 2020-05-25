@@ -9,8 +9,7 @@ const ConcernSchema = new Schema({
         required: "Name is Required"
     },
     last_check: {
-        type: String,
-        default: "never"
+        type: String 
     }
 });
 
