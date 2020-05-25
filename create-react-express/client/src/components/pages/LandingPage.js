@@ -1,7 +1,10 @@
 import React from "react";
 import "./project3.css";
 
-function LandingPage() {
+function LandingPage(props) {
+  console.log(props.match.params.id);
+
+  
   return (
     <div>
       <section class="section">
