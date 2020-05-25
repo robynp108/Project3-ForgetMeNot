@@ -1,17 +1,10 @@
-<!DOCTYPE html>
-<html lang="en-us">
+import React from "react";
+import "./project3.css";
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hello Bulma!</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
-    <link rel="stylesheet" href="project3.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-</head>
-
-<body>
-    <section class="section">
+function LandingPage() {
+  return (
+    <div>
+      <section class="section">
         <div class="field is-grouped is-grouped-centered">
             <h1 class="title">
                 Forget Me Not
@@ -26,4 +19,8 @@
             </div>
         </form>
     </section>
-</body>
+    </div>
+  );
+}
+
+export default LandingPage;
