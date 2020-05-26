@@ -17,5 +17,16 @@ export default {
             .catch(function (error) {
                 console.log(error);
             });
+    },
+
+    displayConcerns: () => {
+        return axios.get("/concerns")
+        .then(function (response) {
+            console.log(response);
+            return response;
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
     }
 };
