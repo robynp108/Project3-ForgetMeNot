@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import API from "../../utils/API";
 import "./project3.css";
 
@@ -9,6 +10,8 @@ function LandingPage(props) {
   useEffect(() => {
     API.updateLastCheck(concernId);
   }, [concernId]);
+
+  const location = useLocation();
 
   return (
     <div>
@@ -23,7 +26,11 @@ function LandingPage(props) {
         </div>
         <form>
             <div className="field is-grouped is-grouped-centered">
-                <button className="button is-hsl(271, 100%">Home</button>
+                <button className="button is-hsl(271, 100%">
+                  <Link to="/" className={location.pathname === "/" ? "nav-link active" : "nav-link"} style={{color: "white"}}>
+                      Home
+                  </Link>
+                </button>
             </div>
         </form>
     </section>

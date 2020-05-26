@@ -1,4 +1,5 @@
 import React from "react";
+import Concern from "../Concern";
 import "./project3.css";
 
 function Home() {
@@ -12,11 +13,7 @@ function Home() {
         <br/>
         <div className="field is-grouped is-grouped-centered">
             <div className="box">  
-                <ul>
-                    <li>Door Locked 0:00 </li>
-                    <li>Stove Turned Off 0:00</li>
-                    <li>Cats Fed 0:00</li>
-                </ul> 
+                <Concern></Concern>
             </div>
         </div>
         <br/>
