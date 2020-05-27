@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import API from "../../utils/API";
 import Concern from "../Concern";
+import Form from "../Form";
 import "./project3.css";
 
 function Home() {
 
     const [concerns, setConcerns] = useState([]);
-    
+
 
     useEffect(() => {
         API.displayConcerns().then((response) => {
@@ -25,13 +26,24 @@ function Home() {
             <div className="field is-grouped is-grouped-centered">
                 <div className="box">
                     <ul>
-                    {concerns.map(concern => (
-                        <Concern
-                        name={concern.name}
-                        last_check={concern.last_check}
-                    />
-                    ))}
+                        {concerns.map(concern => (
+                            <Concern
+                                name={concern.name}
+                                last_check={concern.last_check}
+                            />
+                        ))}
                     </ul>
+                </div>
+            </div>
+            <br />
+            <div className="columns is-mobile is-centered">
+                <div className="column is-one-quarter">
+                    <div>
+                        <Form />
+                    </div>
+                    <div>
+                        <button className="button is-small is-success is-light">Submit</button>
+                    </div>
                 </div>
             </div>
             <br />
