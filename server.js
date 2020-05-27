@@ -26,11 +26,11 @@ if (process.env.NODE_ENV === "production") {
 // Send every request to the React app
 app.get("/concerns", (req, res) => {
   db.Concern.find({}, (error, data) => {
-      if (error) {
-          res.send(error);
-      } else {
-          res.json(data);
-      }
+    if (error) {
+      res.send(error);
+    } else {
+      res.json(data);
+    }
   });
 });
 
@@ -44,16 +44,23 @@ app.put("/concerns/:id", (req, res) => {
       res.json(data);
     }
   });
-  // const mongooseId = new mongoose.Types.ObjectId(req.params.id);
-  // db.Concern.findByIdAndUpdate(req.params.id, {$set: {last_check: req.body.last_check}});
-  // res.send(req.body.last_check);
+});
+
+app.post("/concerns", (req, res) => {
+  db.Concern.collection.insert({ name: req.body.name }, (error, data) => {
+    if (error) {
+      res.send(error);
+    } else {
+      res.json(data);
+    }
+  });
 });
 
 // Define any API routes before this runs
-app.get("*", function(req, res) {
+app.get("*", function (req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
-app.listen(PORT, function() {
+app.listen(PORT, function () {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
 });
