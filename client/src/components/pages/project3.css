@@ -1,0 +1,44 @@
+html {
+    background-color: limegreen ;
+    font-size: 16px;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    min-width: 300px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    text-rendering: optimizeLegibility;
+    -webkit-text-size-adjust: 100%;
+       -moz-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+  }
+
+  .button {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: mediumpurple;
+    color: white;
+  }
+  .button {
+    display: flex;
+    justify-content: space-between;
+    background-color: yellow;
+    color: blue;
+  }
+
+  .box {
+      display: flex;
+      flex-direction: vertical;
+      background-color: rgba(148, 247, 109, 0.795);
+  }
+
+  .button {
+      background-color: mediumpurple;
+      color: white;
+  }
+
+
+  button is-link {
+      background-color: brgba(148, 247, 109, 0.795);
+      color: white;
+  }
