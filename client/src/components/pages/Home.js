@@ -41,9 +41,6 @@ function Home() {
                     <div>
                         <Form />
                     </div>
-                    <div>
-                        <button className="button is-small is-success is-light">Submit</button>
-                    </div>
                 </div>
             </div>
             <br />
