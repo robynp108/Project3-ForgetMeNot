@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from "./components/pages/Home";
 import LandingPage from "./components/pages/LandingPage";
+import ConcernQRCode from "./components/pages/ConcernQRCode";
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <div>
         <Route exact path="/" component={Home} />
         <Route path="/landingpage/:id" component={LandingPage} />
+        <Route path="/concernqrcode/:name/:id" component={ConcernQRCode} />
       </div>
     </Router>
   );

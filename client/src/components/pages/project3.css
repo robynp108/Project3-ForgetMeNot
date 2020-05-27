@@ -42,3 +42,8 @@ html {
       background-color: brgba(148, 247, 109, 0.795);
       color: white;
   }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+  }
