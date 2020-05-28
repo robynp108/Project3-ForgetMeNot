@@ -28,5 +28,15 @@ export default {
         .catch(function (error) {
             console.log(error);
         });
+    },
+
+    createConcern: (value) => {
+        return axios.post("/concerns", {name: value})
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
     }
 };
