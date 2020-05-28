@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import API from "../../utils/API";
 import Concern from "../Concern";
 import Form from "../Form";
 import "./project3.css";
 
 function Home() {
+    const location = useLocation();
 
     const [concerns, setConcerns] = useState([]);
 
@@ -47,9 +49,17 @@ function Home() {
             <br />
             <div className="container">
                 <div className="field is-grouped is-grouped-centered">
-                    <div> <button className="button">Login</button></div>
+                    <div> 
+                        <button className="button">Login</button>
+                    </div>
 
-                    <div><button className="button is-link">Signup</button></div>
+                    <div>
+                        <button className="button is-link">
+                            <Link to="/signup" className={location.pathname === "/signup" ? "nav-link active" : "nav-link"} style={{ color: "white" }}>
+                                SignUp
+                            </Link>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

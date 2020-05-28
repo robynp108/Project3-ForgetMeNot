@@ -23,6 +23,16 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
+app.post("/signup", ({ body }, res) => {
+  User.create(body)
+    .then(dbUser => {
+      res.json(dbUser);
+    })
+    .catch(err => {
+      res.json(err);
+    });
+});
+
 // Send every request to the React app
 app.get("/concerns", (req, res) => {
   db.Concern.find({}, (error, data) => {

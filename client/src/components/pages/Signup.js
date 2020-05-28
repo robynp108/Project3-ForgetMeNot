@@ -1,10 +1,11 @@
 import React from "react";
+import "./project3.css";
 
 function Signup() {
 
     return (
         <div className="hero">
-            <div className="hero-body">
+            <div className="hero-body is-vcentered">
                 <h1 className="title has-text-centered is-size-2">Signup</h1>
                 <div className="box">
                     <div className="field">
@@ -33,8 +34,9 @@ function Signup() {
                             </span>
                         </p>
                     </div>
-                    <div className="button is-link">Signup
-                </div>
+                    <div className="column"> 
+                        <button className="button is-link">Signup</button>
+                    </div>
                 </div>
             </div>
         </div>
