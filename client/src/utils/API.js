@@ -38,5 +38,15 @@ export default {
         .catch(function (error) {
             console.log(error);
         });
+    },
+
+    createUser: (newUser) => {
+        return axios.post("/signup", newUser)
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
     }
 };

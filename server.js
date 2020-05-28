@@ -24,7 +24,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 app.post("/signup", ({ body }, res) => {
-  User.create(body)
+  db.User.create(body)
     .then(dbUser => {
       res.json(dbUser);
     })
