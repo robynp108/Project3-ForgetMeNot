@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+var bcrypt = require("bcryptjs");
 
 const Schema = mongoose.Schema;
 
@@ -13,7 +14,13 @@ const UserSchema = new Schema({
     type: String,
     trim: true,
     required: "Password is Required",
-    validate: [({ length }) => length >= 6, "Password should be longer."]
+    validate: [({ length }) => length >= 6, "Password should be longer."],
+    set: (value) => {
+      return bcrypt.hashSync(
+        value,
+        bcrypt.genSaltSync(10)
+      );
+    }
   },
 
   email: {
@@ -29,5 +36,9 @@ const UserSchema = new Schema({
 });
 
 const User = mongoose.model("User", UserSchema);
+
+User.prototype.validPassword = function (password) {
+  return bcrypt.compareSync(password, this.password);
+};
 
 module.exports = User;
