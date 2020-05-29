@@ -15,13 +15,25 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://user1:password1@ds115595.mlab.com:15595/heroku_tsxmp9w7"
-mongoose.connect(MONGODB_URI);
+// const MONGODB_URI = process.env.MONGODB_URI || "mongodb://user1:password1@ds115595.mlab.com:15595/heroku_tsxmp9w7"
+// mongoose.connect(MONGODB_URI);
+
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/concern", { useNewUrlParser: true });
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
+
+app.post("/signup", ({ body }, res) => {
+  db.User.create(body)
+    .then(dbUser => {
+      res.json(dbUser);
+    })
+    .catch(err => {
+      res.json(err);
+    });
+});
 
 // Send every request to the React app
 app.get("/concerns", (req, res) => {

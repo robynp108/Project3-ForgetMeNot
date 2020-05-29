@@ -46,3 +46,11 @@ html {
   .column {
     height: 100%;
   }
+
+  .hero {
+    background-color: limegreen;
+}
+
+.notification {
+    background-color: limegreen;
+}
