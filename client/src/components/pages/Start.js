@@ -53,11 +53,18 @@ function Home() {
                             </Link>
                         </button>
                     </div>
-
                     <div>
                         <button className="button is-link">
                             <Link to="/signup" className={location.pathname === "/signup" ? "nav-link active" : "nav-link"} style={{ color: "white" }}>
                                 SignUp
+                            </Link>
+                        </button>
+                    </div>
+                    <br />
+                    <div className="field is-grouped is-grouped-centered">
+                        <button className="button is-hsl(271, 100%">
+                            <Link to="/home" className={location.pathname === "/home" ? "nav-link active" : "nav-link"} style={{ color: "white" }}>
+                                Home (members)
                             </Link>
                         </button>
                     </div>

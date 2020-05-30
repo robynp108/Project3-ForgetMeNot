@@ -10,6 +10,7 @@ function Home() {
     const location = useLocation();
     const history = useHistory();
     const [concerns, setConcerns] = useState([]);
+    const [username, setUsername] = useState("");
 
 
     useEffect(() => {
@@ -22,12 +23,22 @@ function Home() {
         });
     }, []);
 
+    useEffect(() => {
+        API.displayUsername().then((response) => {
+            setUsername(response.data.username);
+        });
+    });
+
     return (
         <div>
             <div className="field is-grouped is-grouped-centered">
                 <h1 className="title">
                     Forget Me Not
-            </h1>
+                </h1>
+            </div>
+            <br />
+            <div className="field is-grouped is-grouped-centered">
+                <p style={{ fontWeight: "bold", fontSize: "large" }}>Welcome {username}!</p>
             </div>
             <br />
             <div className="field is-grouped is-grouped-centered">
@@ -52,6 +63,13 @@ function Home() {
                 </div>
             </div>
             <br />
+            <div className="field is-grouped is-grouped-centered">
+                <button className="button is-hsl(271, 100%">
+                    <Link to="/" className={location.pathname === "/" ? "nav-link active" : "nav-link"} style={{ color: "white" }}>
+                        Front page/instructions
+                    </Link>
+                </button>
+            </div>
         </div>
     );
 }

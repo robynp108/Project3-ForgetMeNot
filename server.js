@@ -44,6 +44,14 @@ app.post("/api/login", passport.authenticate("local"), ({ user }, res) => {
   res.json(user);
 });
 
+app.get("/user", (req, res) => {
+  if (!req.user) {
+    res.send("forbidden", 403);
+    return;
+  }
+    res.json(req.user);
+});
+
 // Send every request to the React app
 app.get("/concerns", (req, res) => {
   if (!req.user) {

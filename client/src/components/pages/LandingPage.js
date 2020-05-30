@@ -24,15 +24,14 @@ function LandingPage(props) {
         <div className="field is-grouped is-grouped-centered">
             <button className="button is-link">Scan Successful!</button>
         </div>
-        <form>
-            <div className="field is-grouped is-grouped-centered">
-                <button className="button is-hsl(271, 100%">
-                  <Link to="/home" className={location.pathname === "/home" ? "nav-link active" : "nav-link"} style={{color: "white"}}>
-                      Home
-                  </Link>
-                </button>
-            </div>
-        </form>
+        <br />
+        <div className="field is-grouped is-grouped-centered">
+            <button className="button is-hsl(271, 100%">
+              <Link to="/home" className={location.pathname === "/home" ? "nav-link active" : "nav-link"} style={{color: "white"}}>
+                  Home
+              </Link>
+            </button>
+        </div>
     </section>
     </div>
   );

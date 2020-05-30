@@ -10,31 +10,35 @@ function Login() {
     // const [redirect,...]
     const handleSubmit = (evt) => {
         evt.preventDefault();
-    // alert(`Submitting username= ${memberUsername}, password= ${memberPassword}`)
+        // alert(`Submitting username= ${memberUsername}, password= ${memberPassword}`)
 
-    const member = {
-        username: memberUsername,
-        password: memberPassword,
-    };
+        const member = {
+            username: memberUsername,
+            password: memberPassword,
+        };
 
-    API.loginUser(member)
-    .then(response => {
-        console.log(response);
-        if (response.status = "200") {
-            console.log("auth succeeded");
-            history.push('/home');
-            // redirect screenshot with hook instead of state
-        } else {
+        API.loginUser(member)
+            .then(response => {
+                console.log(response);
+                if (response.status = "200") {
+                    console.log("auth succeeded");
+                    history.push('/home');
+                    // redirect screenshot with hook instead of state
+                } else {
 
-        }
-    });
-}
+                }
+            });
+    }
 
-return (
-    <div className="hero">
-        <div className="hero-body">
-            <h1 className="title has-text-centered is-size-2">Login</h1>
-            <div className="box is-vcentered" style={{width: "50%", marginLeft: "300px"}}>
+    return (
+        <div>
+            <div className="field is-grouped is-grouped-centered">
+                <h1 className="title">
+                    Login
+                </h1>
+            </div>
+            <br />
+            <div className="box is-vcentered" style={{ margin: "25px 50px" }}>
                 <div className="field">
                     <label className="label">Username</label>
                     <p className="control has-icons-left has-icons-right">
@@ -65,8 +69,7 @@ return (
                 </div>
             </div>
         </div>
-    </div>
-);
+    );
 }
 
 export default Login;
