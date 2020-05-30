@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import { Link, useLocation } from "react-router-dom";
 import API from "../../utils/API";
 import Concern from "../Concern";
@@ -7,14 +8,18 @@ import Form from "../Form";
 
 function Home() {
     const location = useLocation();
-
+    const history = useHistory();
     const [concerns, setConcerns] = useState([]);
 
 
     useEffect(() => {
         API.displayConcerns().then((response) => {
+            console.log(response);
             setConcerns(response.data);
-        })
+        }).catch((error) => {
+            console.log('error');
+            history.push('/');
+        });
     }, []);
 
     return (

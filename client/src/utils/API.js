@@ -20,14 +20,7 @@ export default {
     },
 
     displayConcerns: () => {
-        return axios.get("/concerns")
-        .then(function (response) {
-            console.log(response);
-            return response;
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
+        return axios.get("/concerns");
     },
 
     createConcern: (value) => {

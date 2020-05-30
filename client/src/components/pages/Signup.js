@@ -22,52 +22,55 @@ function Signup() {
     }
 
     return (
-        <div className="hero">
-            <div className="hero-body">
-                <h1 className="title has-text-centered is-size-2">Signup</h1>
-                <div className="box" style={{width: "50%", marginLeft: "300px"}}>
-                    <div className="field">
-                        <label className="label">Create Username</label>
-                        <p className="control has-icons-left has-icons-right">
-                            <input 
-                                className="input" 
-                                type="username"
-                                value={newUsername}
-                                onChange={e => setNewUsername(e.target.value)}
-                            />
-                        </p>
-                    </div>
-                    <div className="field">
-                        <label className="label">Create Password:</label>
-                        <p className="control has-icons-left">
-                            <input 
-                                className="input" 
-                                type="password"
-                                value={newPassword}
-                                onChange={e => setNewPassword(e.target.value)}
-                                />
-                            <span className="icon is-small is-left">
-                                <i className="fas fa-lock"></i>
-                            </span>
-                        </p>
-                    </div>
-                    <div className="field">
-                        <label className="label">Email</label>
-                        <p className="control has-icons-left has-icons-right">
-                            <input 
-                                className="input" 
-                                type="email"
-                                value={newEmail}
-                                onChange={e => setNewEmail(e.target.value)} 
-                                />
-                            <span className="icon is-small is-left">
-                                <i className="fas fa-envelope"></i>
-                            </span>
-                        </p>
-                    </div>
-                    <div className="column"> 
-                        <button className="button is-link" onClick={handleSubmit}>Signup</button>
-                    </div>
+        <div>
+            <div className="field is-grouped is-grouped-centered">
+                <h1 className="title">
+                    Signup
+                </h1>
+            </div>
+            <br />
+            <div className="box" style={{ margin: "25px 50px" }}>
+                <div className="field">
+                    <label className="label">Create Username</label>
+                    <p className="control has-icons-left has-icons-right">
+                        <input
+                            className="input"
+                            type="username"
+                            value={newUsername}
+                            onChange={e => setNewUsername(e.target.value)}
+                        />
+                    </p>
+                </div>
+                <div className="field">
+                    <label className="label">Create Password:</label>
+                    <p className="control has-icons-left">
+                        <input
+                            className="input"
+                            type="password"
+                            value={newPassword}
+                            onChange={e => setNewPassword(e.target.value)}
+                        />
+                        <span className="icon is-small is-left">
+                            <i className="fas fa-lock"></i>
+                        </span>
+                    </p>
+                </div>
+                <div className="field">
+                    <label className="label">Email</label>
+                    <p className="control has-icons-left has-icons-right">
+                        <input
+                            className="input"
+                            type="email"
+                            value={newEmail}
+                            onChange={e => setNewEmail(e.target.value)}
+                        />
+                        <span className="icon is-small is-left">
+                            <i className="fas fa-envelope"></i>
+                        </span>
+                    </p>
+                </div>
+                <div className="column">
+                    <button className="button is-link" onClick={handleSubmit}>Signup</button>
                 </div>
             </div>
         </div>

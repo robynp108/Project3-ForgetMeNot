@@ -1,4 +1,5 @@
 const express = require("express");
+const session = require("express-session");
 // const logger = require("morgan");
 const mongoose = require("mongoose");
 const path = require("path");
@@ -14,6 +15,7 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+app.use(session({ secret: "abc" }));
 app.use(express.static("public"));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -44,7 +46,11 @@ app.post("/api/login", passport.authenticate("local"), ({ user }, res) => {
 
 // Send every request to the React app
 app.get("/concerns", (req, res) => {
-  db.Concern.find({}, (error, data) => {
+  if (!req.user) {
+    res.send("forbidden", 403);
+    return;
+  }
+  db.Concern.find({user_id: req.user._id}, (error, data) => {
     if (error) {
       res.send(error);
     } else {
@@ -66,7 +72,7 @@ app.put("/concerns/:id", (req, res) => {
 });
 
 app.post("/concerns", (req, res) => {
-  db.Concern.collection.insert({ name: req.body.name }, (error, data) => {
+  db.Concern.collection.insert({ name: req.body.name, user_id: req.user._id }, (error, data) => {
     if (error) {
       res.send(error);
     } else {
