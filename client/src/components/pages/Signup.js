@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import API from "../../utils/API";
-import "./project3.css";
 
 function Signup() {
 
@@ -26,7 +25,7 @@ function Signup() {
         <div className="hero">
             <div className="hero-body">
                 <h1 className="title has-text-centered is-size-2">Signup</h1>
-                <div className="box is-vcentered">
+                <div className="box" style={{width: "50%", marginLeft: "300px"}}>
                     <div className="field">
                         <label className="label">Create Username</label>
                         <p className="control has-icons-left has-icons-right">

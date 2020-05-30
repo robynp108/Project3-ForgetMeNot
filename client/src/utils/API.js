@@ -48,5 +48,15 @@ export default {
         .catch(function (error) {
             console.log(error);
         });
+    },
+
+    loginUser: (member) => {
+        return axios.post("/api/login", member)
+        // .then(function (response) {
+        //     console.log(response);
+        // })
+        // .catch(function (error) {
+        //     console.log(error);
+        // });
     }
 };

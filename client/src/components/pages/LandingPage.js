@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import API from "../../utils/API";
-import "./project3.css";
+
 
 function LandingPage(props) {
   console.log(props.match.params.id);
@@ -27,7 +27,7 @@ function LandingPage(props) {
         <form>
             <div className="field is-grouped is-grouped-centered">
                 <button className="button is-hsl(271, 100%">
-                  <Link to="/" className={location.pathname === "/" ? "nav-link active" : "nav-link"} style={{color: "white"}}>
+                  <Link to="/home" className={location.pathname === "/home" ? "nav-link active" : "nav-link"} style={{color: "white"}}>
                       Home
                   </Link>
                 </button>

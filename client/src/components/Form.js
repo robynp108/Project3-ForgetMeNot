@@ -15,7 +15,7 @@ function Form() {
     return (
         <div className="field">
             <div className="control">
-                <input 
+                <input
                 className="input" 
                 type="text"
                 value={newConcern}

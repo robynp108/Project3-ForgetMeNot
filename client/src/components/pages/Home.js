@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import API from "../../utils/API";
 import Concern from "../Concern";
 import Form from "../Form";
-import "./project3.css";
+
 
 function Home() {
     const location = useLocation();
@@ -47,21 +47,6 @@ function Home() {
                 </div>
             </div>
             <br />
-            <div className="container">
-                <div className="field is-grouped is-grouped-centered">
-                    <div> 
-                        <button className="button">Login</button>
-                    </div>
-
-                    <div>
-                        <button className="button is-link">
-                            <Link to="/signup" className={location.pathname === "/signup" ? "nav-link active" : "nav-link"} style={{ color: "white" }}>
-                                SignUp
-                            </Link>
-                        </button>
-                    </div>
-                </div>
-            </div>
         </div>
     );
 }
