@@ -11,6 +11,9 @@ const ConcernSchema = new Schema({
     last_check: {
         type: String,
         default: "never" 
+    },
+    user_id: {
+        type: String
     }
 });
 

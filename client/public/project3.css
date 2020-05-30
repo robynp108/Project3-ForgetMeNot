@@ -28,7 +28,7 @@ html {
 
   .box {
       display: flex;
-      flex-direction: vertical;
+      flex-direction: column;
       background-color: rgba(148, 247, 109, 0.795);
   }
 
@@ -46,3 +46,11 @@ html {
   .column {
     height: 100%;
   }
+
+  .hero {
+    background-color: limegreen;
+}
+
+.notification {
+    background-color: limegreen;
+}

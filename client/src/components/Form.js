@@ -13,17 +13,21 @@ function Form() {
     }
 
     return (
-        <div className="field">
-            <div className="control">
-                <input 
-                className="input" 
-                type="text"
-                value={newConcern}
-                onChange={e => setNewConcern(e.target.value)} 
-                placeholder="Add another concern" />
-            </div>
-            <div>
-                <button className="button is-small is-success is-light" onClick={handleSubmit}>Submit</button>
+        <div classname="container">
+            <div classname="columns">
+                <div classname="column">
+                    <div className="control">
+                        <input
+                            className="input"
+                            type="text"
+                            value={newConcern}
+                            onChange={e => setNewConcern(e.target.value)}
+                            placeholder="Add another concern" />
+                    </div>
+                </div>
+                <div className="column is-vcentered">
+                    <button className="button is-small is-success is-light" onClick={handleSubmit}>Submit</button> 
+                </div>
             </div>
         </div>
     );
