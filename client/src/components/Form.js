@@ -22,7 +22,7 @@ function Form() {
                             type="text"
                             value={newConcern}
                             onChange={e => setNewConcern(e.target.value)}
-                            placeholder="Add another concern" />
+                            placeholder="Add a concern" />
                     </div>
                 </div>
                 <div className="column is-vcentered">

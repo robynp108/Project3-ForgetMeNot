@@ -24,6 +24,4 @@ function App() {
   );
 }
 
-// testcomment
-
 export default App;
