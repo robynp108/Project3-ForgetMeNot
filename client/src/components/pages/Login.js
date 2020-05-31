@@ -6,8 +6,9 @@ function Login() {
 
     const [memberUsername, setMemberUsername] = useState("");
     const [memberPassword, setMemberPassword] = useState("");
+
     const history = useHistory();
-    // const [redirect,...]
+    
     const handleSubmit = (evt) => {
         evt.preventDefault();
         // alert(`Submitting username= ${memberUsername}, password= ${memberPassword}`)
@@ -23,9 +24,6 @@ function Login() {
                 if (response.status = "200") {
                     console.log("auth succeeded");
                     history.push('/home');
-                    // redirect screenshot with hook instead of state
-                } else {
-
                 }
             });
     }

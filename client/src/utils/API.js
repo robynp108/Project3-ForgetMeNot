@@ -1,6 +1,6 @@
 import axios from "axios";
 
-
+// Express needs this header on the response body of put/post routes to parse correctly
 axios.defaults.headers.put['Content-Type'] = 'application/json';
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import API from "../../utils/API";
 
 function Signup() {
@@ -6,6 +7,8 @@ function Signup() {
     const [newUsername, setNewUsername] = useState("");
     const [newPassword, setNewPassword] = useState("");
     const [newEmail, setNewEmail] = useState("");
+
+    const history = useHistory();
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
@@ -17,8 +20,14 @@ function Signup() {
             email: newEmail
         };
 
-        API.createUser(newUser);
-        // window.location.reload(true);
+        API.createUser(newUser)
+            .then(response => {
+            console.log(response);
+            if (response.status = "200") {
+                console.log("signup succeeded");
+                history.push('/login');
+            }
+        });
     }
 
     return (
