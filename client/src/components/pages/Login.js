@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import API from "../../utils/API";
+import Navbar from "../Navbar";
 
 function Login() {
 
@@ -30,8 +31,9 @@ function Login() {
 
     return (
         <div>
-            <div className="field is-grouped is-grouped-centered">
-                <h1 className="title">
+            <Navbar />
+            <div className="field is-grouped is-grouped-centered" style={{marginTop: "50px" }}>
+                <h1 className="title" style={{ fontFamily: "'Kalam', cursive" }}>
                     Login
                 </h1>
             </div>
@@ -63,7 +65,7 @@ function Login() {
                     </p>
                 </div>
                 <div className="column">
-                    <button className="button is-link" onClick={handleSubmit}>Login</button>
+                    <button className="button" onClick={handleSubmit}>Login</button>
                 </div>
             </div>
         </div>

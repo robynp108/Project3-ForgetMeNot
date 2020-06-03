@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import API from "../../utils/API";
+import Navbar from "../Navbar";
 
 function Signup() {
 
@@ -32,8 +33,9 @@ function Signup() {
 
     return (
         <div>
-            <div className="field is-grouped is-grouped-centered">
-                <h1 className="title">
+            <Navbar />
+            <div className="field is-grouped is-grouped-centered" style={{marginTop: "50px" }}>
+                <h1 className="title" style={{ fontFamily: "'Kalam', cursive" }}>
                     Signup
                 </h1>
             </div>

@@ -8,18 +8,19 @@ function Navbar() {
         <div>
             <nav class="navbar" role="navigation" aria-label="main navigation">
                 <div class="navbar-brand">
-                    <a class="navbar-item" href="https://bulma.io">
-                        <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28" />
+                    <a class="navbar-item" href="/" style={{ fontFamily: "'Kalam', cursive", fontSize: "x-large"}}>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT_D2VOsb10Hq33rXLuX-8v80RRsix6WkMGEiwTtv_hxmaMC4nF&usqp=CAU" width="80px" height="50px" />
+                        ForgetMeNot
                     </a>
 
-                    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
                         <span aria-hidden="true"></span>
                         <span aria-hidden="true"></span>
                         <span aria-hidden="true"></span>
                     </a>
                 </div>
 
-                <div id="navbarBasicExample" class="navbar-menu">
+                <div id="navbarBasicExample" class="navbar-menu is-active">
                     <div class="navbar-start">
                         <a class="navbar-item" href="/">
                             About
@@ -48,12 +49,12 @@ function Navbar() {
                     <div class="navbar-end">
                         <div class="navbar-item">
                             <div class="buttons">
-                                <button className="button is-link">
+                                <button className="button is-link is-small">
                                     <Link to="/signup" className={location.pathname === "/signup" ? "nav-link active" : "nav-link"} style={{ color: "white" }}>
                                         SignUp
                                     </Link>
                                 </button>
-                                <button className="button">
+                                <button className="button is-small">
                                     <Link to="/login" className={location.pathname === "/login" ? "nav-link active" : "nav-link"} style={{ color: "white" }}>
                                         Login
                                     </Link>

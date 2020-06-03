@@ -4,6 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import API from "../../utils/API";
 import Concern from "../Concern";
 import Form from "../Form";
+import Navbar from "../Navbar";
 
 
 function Home() {
@@ -31,6 +32,7 @@ function Home() {
 
     return (
         <div>
+            <Navbar />
             <div className="field is-grouped is-grouped-centered">
                 <h1 className="title">
                     Forget Me Not
@@ -61,14 +63,6 @@ function Home() {
                         <Form />
                     </div>
                 </div>
-            </div>
-            <br />
-            <div className="field is-grouped is-grouped-centered">
-                <button className="button is-hsl(271, 100%">
-                    <Link to="/" className={location.pathname === "/" ? "nav-link active" : "nav-link"} style={{ color: "white" }}>
-                        Front page/instructions
-                    </Link>
-                </button>
             </div>
         </div>
     );
