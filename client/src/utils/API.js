@@ -1,6 +1,6 @@
 import axios from "axios";
 
-
+// Express needs this header on the response body of put/post routes to parse correctly
 axios.defaults.headers.put['Content-Type'] = 'application/json';
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 
@@ -11,42 +11,25 @@ export default {
         return axios.put("/concerns/" + concernId, {
             last_check: moment().format("ddd, MMM Do YYYY, h:mm:ss a")
             })
-            .then(function (response) {
-                console.log(response);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
     },
 
     displayConcerns: () => {
-        return axios.get("/concerns")
-        .then(function (response) {
-            console.log(response);
-            return response;
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
+        return axios.get("/concerns");
     },
 
     createConcern: (value) => {
         return axios.post("/concerns", {name: value})
-        .then(function (response) {
-            console.log(response);
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
     },
 
     createUser: (newUser) => {
         return axios.post("/signup", newUser)
-        .then(function (response) {
-            console.log(response);
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
-    }
+    },
+
+    loginUser: (member) => {
+        return axios.post("/api/login", member)
+    },
+
+    displayUsername: () => {
+        return axios.get("/user");
+    },
 };

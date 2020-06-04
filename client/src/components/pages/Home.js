@@ -1,28 +1,46 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import { Link, useLocation } from "react-router-dom";
 import API from "../../utils/API";
 import Concern from "../Concern";
 import Form from "../Form";
-import "./project3.css";
+import Navbar from "../Navbar";
+
 
 function Home() {
     const location = useLocation();
-
+    const history = useHistory();
     const [concerns, setConcerns] = useState([]);
+    const [username, setUsername] = useState("");
 
 
     useEffect(() => {
         API.displayConcerns().then((response) => {
+            console.log(response);
             setConcerns(response.data);
-        })
+        }).catch((error) => {
+            console.log('error');
+            history.push('/');
+        });
     }, []);
+
+    useEffect(() => {
+        API.displayUsername().then((response) => {
+            setUsername(response.data.username);
+        });
+    });
 
     return (
         <div>
+            <Navbar />
             <div className="field is-grouped is-grouped-centered">
                 <h1 className="title">
                     Forget Me Not
-            </h1>
+                </h1>
+            </div>
+            <br />
+            <div className="field is-grouped is-grouped-centered">
+                <p style={{ fontWeight: "bold", fontSize: "large" }}>Welcome {username}!</p>
             </div>
             <br />
             <div className="field is-grouped is-grouped-centered">
@@ -43,22 +61,6 @@ function Home() {
                 <div className="column is-one-quarter">
                     <div>
                         <Form />
-                    </div>
-                </div>
-            </div>
-            <br />
-            <div className="container">
-                <div className="field is-grouped is-grouped-centered">
-                    <div> 
-                        <button className="button">Login</button>
-                    </div>
-
-                    <div>
-                        <button className="button is-link">
-                            <Link to="/signup" className={location.pathname === "/signup" ? "nav-link active" : "nav-link"} style={{ color: "white" }}>
-                                SignUp
-                            </Link>
-                        </button>
                     </div>
                 </div>
             </div>
