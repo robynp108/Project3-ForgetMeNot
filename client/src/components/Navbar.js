@@ -13,11 +13,11 @@ function Navbar() {
                         ForgetMeNot
                     </a>
 
-                    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                    {/* <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
                         <span aria-hidden="true"></span>
                         <span aria-hidden="true"></span>
                         <span aria-hidden="true"></span>
-                    </a>
+                    </a> */}
                 </div>
 
                 <div id="navbarBasicExample" class="navbar-menu is-active">
