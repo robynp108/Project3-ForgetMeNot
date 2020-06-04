@@ -4,12 +4,17 @@ import API from "../../utils/API";
 import Concern from "../Concern";
 import Navbar from "../Navbar";
 
-
-function Home() {
+function ManageList() {
     const history = useHistory();
+    const [newConcern, setNewConcern] = useState("");
     const [concerns, setConcerns] = useState([]);
-    const [username, setUsername] = useState("");
 
+    const handleSubmit = (evt) => {
+        evt.preventDefault();
+        // alert(`Submitting Name ${newConcern}`)
+        API.createConcern(newConcern);
+        window.location.reload(true);
+    }
 
     useEffect(() => {
         API.displayConcerns().then((response) => {
@@ -21,19 +26,31 @@ function Home() {
         });
     }, []);
 
-    useEffect(() => {
-        API.displayUsername().then((response) => {
-            setUsername(response.data.username);
-        });
-    });
-
     return (
         <div>
             <Navbar />
             <div className="field is-grouped is-grouped-centered" style={{marginTop: "50px" }}>
-                <p style={{ fontFamily: "'Kalam', cursive", fontSize: "x-large" }}>Welcome {username}!</p>
+                <h1 className="title" style={{ fontFamily: "'Kalam', cursive" }}>
+                    What would you like to do?
+                </h1>
             </div>
-            <br />
+            <div className="field is-grouped is-grouped-centered">
+                <div class="field has-addons">
+                    <div class="control">
+                        <input 
+                            class="input" 
+                            type="text" 
+                            value={newConcern}
+                            onChange={e => setNewConcern(e.target.value)}
+                            placeholder="Add a Concern" />
+                    </div>
+                    <div class="control">
+                        <a class="button is-info" onClick={handleSubmit}>
+                            Submit
+                        </a>
+                    </div>
+                </div>
+            </div>
             <div className="field is-grouped is-grouped-centered">
                 <div className="box">
                     <ul>
@@ -48,7 +65,7 @@ function Home() {
                 </div>
             </div>
         </div>
-    );
+    )
 }
 
-export default Home;
+export default ManageList;

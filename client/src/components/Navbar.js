@@ -39,7 +39,7 @@ function Navbar() {
                                 <a class="navbar-item" href="/home">
                                     Home
                                 </a>
-                                <a class="navbar-item">
+                                <a class="navbar-item" href="/managelist">
                                     Manage Concern List
                                 </a>
                             </div>
