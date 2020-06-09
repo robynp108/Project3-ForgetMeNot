@@ -3,7 +3,7 @@ import axios from "axios";
 // Express needs this header on the response body of put/post routes to parse correctly
 axios.defaults.headers.put['Content-Type'] = 'application/json';
 axios.defaults.headers.post['Content-Type'] = 'application/json';
-
+axios.defaults.headers.get['authorization'] = localStorage.getItem('jwt');
 
 export default {
     updateLastCheck: (concernId) => {
@@ -26,7 +26,12 @@ export default {
     },
 
     loginUser: (member) => {
-        return axios.post("/api/login", member)
+        const loginPromise = axios.post("/api/login", member);
+        loginPromise.then(({body}) => {
+            localStorage.setItem('jwt', body.jwt);
+            axios.defaults.headers.get['authorization'] = localStorage.getItem('jwt');
+        });
+        return loginPromise;
     },
 
     displayUsername: () => {

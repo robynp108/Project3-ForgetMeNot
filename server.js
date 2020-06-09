@@ -6,6 +6,7 @@ const path = require("path");
 const passport = require("./middleware/passport");
 const PORT = process.env.PORT || 3001;
 
+const { generateJwt, authenticateUser, authenticateJwt } = require("./auth");
 const db = require("./models");
 
 const app = express();
@@ -40,25 +41,41 @@ app.post("/signup", ({ body }, res) => {
     });
 });
 
-app.post("/api/login", passport.authenticate("local"), ({ user }, res) => {
-  res.json(user);
+app.post("/api/login", async ({ body }, res) => {
+  try {
+    const { username, password } = body;
+    const user = await db.User.findOne({ username });
+    authenticateUser(user, password); // throws exception if there's an issue
+    const jwt = generateJwt(user._id) ? generateJwt(user._id) : "it didn't work";
+    // const jwt = user.get('id');
+    res.json({ jwt });
+  } catch (err) {
+    console.log(err);
+    res.json(err);
+  }
 });
 
-app.get("/user", (req, res) => {
-  if (!req.user) {
-    res.send("forbidden", 403);
-    return;
+app.get("/user", async (req, res) => {
+  try {
+    const user = await authenticateJwt(req);
+    res.json(user);
+  } catch (e) {
+    console.log(e);
+    res.send(e, 403)
   }
-    res.json(req.user);
 });
 
 // Send every request to the React app
-app.get("/concerns", (req, res) => {
-  if (!req.user) {
-    res.send("forbidden", 403);
+app.get("/concerns", async (req, res) => {
+  try {
+    const user = await authenticateJwt(req);
+  } catch (e) {
+    console.log(e);
+    res.send(e, 403)
     return;
   }
-  db.Concern.find({user_id: req.user._id}, (error, data) => {
+
+  db.Concern.find({user_id: user._id}, (error, data) => {
     if (error) {
       res.send(error);
     } else {
