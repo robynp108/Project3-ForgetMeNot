@@ -4,6 +4,8 @@ import axios from "axios";
 axios.defaults.headers.put['Content-Type'] = 'application/json';
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 axios.defaults.headers.get['authorization'] = localStorage.getItem('jwt');
+axios.defaults.headers.put['authorization'] = localStorage.getItem('jwt');
+axios.defaults.headers.post['authorization'] = localStorage.getItem('jwt');
 
 export default {
     updateLastCheck: (concernId) => {
@@ -27,9 +29,11 @@ export default {
 
     loginUser: (member) => {
         const loginPromise = axios.post("/api/login", member);
-        loginPromise.then(({body}) => {
-            localStorage.setItem('jwt', body.jwt);
+        loginPromise.then(({data}) => {
+            localStorage.setItem('jwt', data.jwt);
             axios.defaults.headers.get['authorization'] = localStorage.getItem('jwt');
+            axios.defaults.headers.put['authorization'] = localStorage.getItem('jwt');
+            axios.defaults.headers.post['authorization'] = localStorage.getItem('jwt');
         });
         return loginPromise;
     },

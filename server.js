@@ -69,22 +69,29 @@ app.get("/user", async (req, res) => {
 app.get("/concerns", async (req, res) => {
   try {
     const user = await authenticateJwt(req);
+    db.Concern.find({user_id: user._id}, (error, data) => {
+      if (error) {
+        res.send(error);
+      } else {
+        res.json(data);
+      }
+    });
+  } catch (e) {
+    console.log(e);
+    res.send(e, 403)
+    return;
+  }
+});
+
+app.put("/concerns/:id", async (req, res) => {
+  try {
+    const user = await authenticateJwt(req);
   } catch (e) {
     console.log(e);
     res.send(e, 403)
     return;
   }
 
-  db.Concern.find({user_id: user._id}, (error, data) => {
-    if (error) {
-      res.send(error);
-    } else {
-      res.json(data);
-    }
-  });
-});
-
-app.put("/concerns/:id", (req, res) => {
   db.Concern.findById(req.params.id, async (error, data) => {
     if (error) {
       res.send(error);
@@ -96,14 +103,21 @@ app.put("/concerns/:id", (req, res) => {
   });
 });
 
-app.post("/concerns", (req, res) => {
-  db.Concern.collection.insert({ name: req.body.name, user_id: req.user._id }, (error, data) => {
-    if (error) {
-      res.send(error);
-    } else {
-      res.json(data);
-    }
-  });
+app.post("/concerns", async (req, res) => {
+  try {
+    const user = await authenticateJwt(req);
+    db.Concern.collection.insert({ name: req.body.name, user_id: user.get("id") }, (error, data) => {
+      if (error) {
+        res.send(error);
+      } else {
+        res.json(data);
+      }
+    });
+  } catch (e) {
+    console.log(e);
+    res.send(e, 403)
+    return;
+  }
 });
 
 // Define any API routes before this runs
