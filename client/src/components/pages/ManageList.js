@@ -2,19 +2,33 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import API from "../../utils/API";
 import Concern from "../Concern";
+import DeleteBtn from "../../components/DeleteBtn";
 import Navbar from "../Navbar";
 
 function ManageList() {
     const history = useHistory();
     const [newConcern, setNewConcern] = useState("");
+    // const [oldConcern, setOldConcern] = useState("");
     const [concerns, setConcerns] = useState([]);
 
-    const handleSubmit = (evt) => {
+    const handleAdd = (evt) => {
         evt.preventDefault();
         // alert(`Submitting Name ${newConcern}`)
         API.createConcern(newConcern);
         window.location.reload(true);
     }
+
+    function deleteOldConcern(id) {
+        console.log(id);
+        API.deleteConcern(id);
+        window.location.reload(true);
+    }
+
+    // const handleDelete = (evt) => {
+    //     evt.preventDefault();
+    //     API.deleteConcern(oldConcern);
+    //     window.location.reload(true);
+    // }
 
     useEffect(() => {
         API.displayConcerns().then((response) => {
@@ -35,31 +49,52 @@ function ManageList() {
                 </h1>
             </div>
             <div className="field is-grouped is-grouped-centered">
-                <div class="field has-addons">
-                    <div class="control">
+                <div className="field has-addons">
+                    <div className="control">
                         <input 
-                            class="input" 
+                            className="input" 
                             type="text" 
                             value={newConcern}
                             onChange={e => setNewConcern(e.target.value)}
                             placeholder="Add a Concern" />
                     </div>
-                    <div class="control">
-                        <a class="button is-info" onClick={handleSubmit}>
-                            Submit
-                        </a>
+                    <div className="control">
+                        <button className="button is-info" onClick={handleAdd}>
+                            Add
+                        </button>
                     </div>
                 </div>
             </div>
+            {/* <div className="field is-grouped is-grouped-centered">
+                <div className="field has-addons">
+                    <div className="control">
+                        <input 
+                            className="input" 
+                            type="text" 
+                            value={oldConcern}
+                            onChange={e => setOldConcern(e.target.value)}
+                            placeholder="Delete a Concern" />
+                    </div>
+                    <div className="control">
+                        <button className="button is-info" onClick={handleDelete}>
+                            Delete
+                        </button>
+                    </div>
+                </div>
+            </div> */}
             <div className="field is-grouped is-grouped-centered">
                 <div className="box">
                     <ul>
                         {concerns.map(concern => (
                             <Concern
-                                id={concern._id}
-                                name={concern.name}
-                                last_check={concern.last_check}
-                            />
+                            id={concern._id}
+                            name={concern.name}
+                            last_check={concern.last_check}>
+                                <a href={"/concernqrcode/" + concern.name + "/" + concern._id}>QR Code  </a>
+                                {concern.name},
+                                {concern.last_check}   
+                                <DeleteBtn onClick={() => deleteOldConcern(concern._id)} />   
+                            </Concern>
                         ))}
                     </ul>
                 </div>
