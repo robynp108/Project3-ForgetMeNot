@@ -125,10 +125,7 @@ app.post("/concerns", async (req, res) => {
 app.delete("/concerns/:id", async (req, res) => {
   try {
     const user = await authenticateJwt(req);
-    // const id = `"${req.params.id}"`;
-    // console.log(id);
     db.Concern.collection.deleteOne({ _id: ObjectId(req.params.id), user_id: user.get("id") }, (error, data) => {
-      // console.log(req.params.id);
       if (error) {
         res.send(error);
       } else {
