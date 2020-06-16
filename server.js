@@ -8,6 +8,7 @@ const PORT = process.env.PORT || 3001;
 
 const { generateJwt, authenticateUser, authenticateJwt } = require("./auth");
 const db = require("./models");
+const ObjectId = require('mongodb').ObjectId;
 
 const app = express();
 
@@ -124,8 +125,10 @@ app.post("/concerns", async (req, res) => {
 app.delete("/concerns/:id", async (req, res) => {
   try {
     const user = await authenticateJwt(req);
-    db.Concern.collection.deleteOne({ _id: req.params.id, user_id: user.get("id") }, (error, data) => {
-      console.log(req.params.id);
+    // const id = `"${req.params.id}"`;
+    // console.log(id);
+    db.Concern.collection.deleteOne({ _id: ObjectId(req.params.id), user_id: user.get("id") }, (error, data) => {
+      // console.log(req.params.id);
       if (error) {
         res.send(error);
       } else {
