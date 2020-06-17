@@ -20,8 +20,11 @@ function ConcernQRCode(props) {
                 <p class="title is-2 is-spaced">{concernName}</p>
             </div>
             <div class="column is-2 is v-centered" style={{marginLeft: "100px", marginTop: "100px"}}>
-                <div className="box" style={{marginLeft: "20px"}}>
+                {/* <div className="box" style={{marginLeft: "20px"}}>
                     <QRCode value={protocol + "//" + hostname + ":" + port + "/landingpage/" + concernId} />
+                </div> */}
+                <div className="box" style={{marginLeft: "20px"}}>
+                    <QRCode value={"landingpage/" + concernId} />
                 </div>
                 <br />
                 <div className="field is-grouped is-grouped-centered">

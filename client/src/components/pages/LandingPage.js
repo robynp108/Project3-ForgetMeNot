@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import API from "../../utils/API";
+import QrScanner from "../QrScanner";
+
 
 
 function LandingPage(props) {
@@ -21,12 +23,13 @@ function LandingPage(props) {
                 ForgetMeNot
             </h1>
         </div>
+        
         <div className="field is-grouped is-grouped-centered">
             <h1 style={{ fontFamily: "'Kalam', cursive", fontSize: "x-large" }}>
                 Scan successful!
             </h1>
         </div>
-        <br />
+        <QrScanner />
         <div className="field is-grouped is-grouped-centered">
             <button className="button is-hsl(271, 100%">
               <Link to="/home" className={location.pathname === "/home" ? "nav-link active" : "nav-link"} style={{color: "white"}}>
