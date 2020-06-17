@@ -1,9 +1,9 @@
 const express = require("express");
-const session = require("express-session");
+// const session = require("express-session");
 // const logger = require("morgan");
 const mongoose = require("mongoose");
 const path = require("path");
-const passport = require("./middleware/passport");
+// const passport = require("./middleware/passport");
 const PORT = process.env.PORT || 3001;
 
 const { generateJwt, authenticateUser, authenticateJwt } = require("./auth");
@@ -17,10 +17,10 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use(session({ secret: "abc" }));
+// app.use(session({ secret: "abc" }));
 app.use(express.static("public"));
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 // const MONGODB_URI = process.env.MONGODB_URI || "mongodb://user1:password1@ds115595.mlab.com:15595/heroku_tsxmp9w7"
 // mongoose.connect(MONGODB_URI);
