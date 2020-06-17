@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import { Link, useLocation } from "react-router-dom";
 import API from "../../utils/API";
 import Concern from "../Concern";
-import Form from "../Form";
 import Navbar from "../Navbar";
 
 
 function Home() {
-    const location = useLocation();
     const history = useHistory();
     const [concerns, setConcerns] = useState([]);
     const [username, setUsername] = useState("");
@@ -33,14 +30,8 @@ function Home() {
     return (
         <div>
             <Navbar />
-            <div className="field is-grouped is-grouped-centered">
-                <h1 className="title">
-                    Forget Me Not
-                </h1>
-            </div>
-            <br />
-            <div className="field is-grouped is-grouped-centered">
-                <p style={{ fontWeight: "bold", fontSize: "large" }}>Welcome {username}!</p>
+            <div className="field is-grouped is-grouped-centered" style={{marginTop: "50px" }}>
+                <p style={{ fontFamily: "'Kalam', cursive", fontSize: "x-large" }}>Welcome {username}!</p>
             </div>
             <br />
             <div className="field is-grouped is-grouped-centered">
@@ -54,14 +45,6 @@ function Home() {
                             />
                         ))}
                     </ul>
-                </div>
-            </div>
-            <br />
-            <div className="columns is-mobile is-centered">
-                <div className="column is-one-quarter">
-                    <div>
-                        <Form />
-                    </div>
                 </div>
             </div>
         </div>

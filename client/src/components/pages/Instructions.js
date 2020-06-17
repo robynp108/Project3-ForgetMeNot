@@ -1,10 +1,8 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
 import Navbar from "../Navbar";
 
 
 function Home() {
-    const location = useLocation();
 
     return (
         <div>

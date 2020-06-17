@@ -3,9 +3,11 @@ import axios from "axios";
 // Express needs this header on the response body of put/post routes to parse correctly
 axios.defaults.headers.put['Content-Type'] = 'application/json';
 axios.defaults.headers.post['Content-Type'] = 'application/json';
+axios.defaults.headers.delete['Content-Type'] = 'application/json';
 axios.defaults.headers.get['authorization'] = localStorage.getItem('jwt');
 axios.defaults.headers.put['authorization'] = localStorage.getItem('jwt');
 axios.defaults.headers.post['authorization'] = localStorage.getItem('jwt');
+axios.defaults.headers.delete['authorization'] = localStorage.getItem('jwt');
 
 export default {
     updateLastCheck: (concernId) => {
@@ -23,6 +25,11 @@ export default {
         return axios.post("/concerns", {name: value})
     },
 
+    deleteConcern: (id) => {
+        console.log(id);
+        return axios.delete("/concerns/" + id)
+    },
+
     createUser: (newUser) => {
         return axios.post("/signup", newUser)
     },
@@ -34,6 +41,7 @@ export default {
             axios.defaults.headers.get['authorization'] = localStorage.getItem('jwt');
             axios.defaults.headers.put['authorization'] = localStorage.getItem('jwt');
             axios.defaults.headers.post['authorization'] = localStorage.getItem('jwt');
+            axios.defaults.headers.delete['authorization'] = localStorage.getItem('jwt');
         });
         return loginPromise;
     },
