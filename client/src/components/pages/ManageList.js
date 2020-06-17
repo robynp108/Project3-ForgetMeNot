@@ -65,34 +65,13 @@ function ManageList() {
                     </div>
                 </div>
             </div>
-            {/* <div className="field is-grouped is-grouped-centered">
-                <div className="field has-addons">
-                    <div className="control">
-                        <input 
-                            className="input" 
-                            type="text" 
-                            value={oldConcern}
-                            onChange={e => setOldConcern(e.target.value)}
-                            placeholder="Delete a Concern" />
-                    </div>
-                    <div className="control">
-                        <button className="button is-info" onClick={handleDelete}>
-                            Delete
-                        </button>
-                    </div>
-                </div>
-            </div> */}
             <div className="field is-grouped is-grouped-centered">
                 <div className="box">
                     <ul>
                         {concerns.map(concern => (
-                            <Concern
-                            id={concern._id}
-                            name={concern.name}
-                            last_check={concern.last_check}>
+                            <Concern>
                                 <a href={"/concernqrcode/" + concern.name + "/" + concern._id}>QR Code  </a>
-                                {concern.name},
-                                {concern.last_check}   
+                                <strong>{concern.name}</strong>:    {concern.last_check}    
                                 <DeleteBtn onClick={() => deleteOldConcern(concern._id)} />   
                             </Concern>
                         ))}

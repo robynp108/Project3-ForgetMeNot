@@ -38,11 +38,9 @@ function Home() {
                 <div className="box">
                     <ul>
                         {concerns.map(concern => (
-                            <Concern
-                                id={concern._id}
-                                name={concern.name}
-                                last_check={concern.last_check}
-                            />
+                            <Concern>
+                                <strong>{concern.name}</strong>:    {concern.last_check}
+                            </Concern>
                         ))}
                     </ul>
                 </div>

@@ -17,12 +17,14 @@ function LandingPage(props) {
     <div>
       <section className="section">
         <div className="field is-grouped is-grouped-centered">
-            <h1 className="title">
-                Forget Me Not
+            <h1 className="title" style={{ fontFamily: "'Kalam', cursive" }}>
+                ForgetMeNot
             </h1>
         </div>
         <div className="field is-grouped is-grouped-centered">
-            <button className="button is-link">Scan Successful!</button>
+            <h1 style={{ fontFamily: "'Kalam', cursive", fontSize: "x-large" }}>
+                Scan successful!
+            </h1>
         </div>
         <br />
         <div className="field is-grouped is-grouped-centered">
