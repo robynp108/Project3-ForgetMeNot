@@ -8,12 +8,10 @@ import Navbar from "../Navbar";
 function ManageList() {
     const history = useHistory();
     const [newConcern, setNewConcern] = useState("");
-    // const [oldConcern, setOldConcern] = useState("");
     const [concerns, setConcerns] = useState([]);
 
     const handleAdd = (evt) => {
         evt.preventDefault();
-        // alert(`Submitting Name ${newConcern}`)
         API.createConcern(newConcern);
         window.location.reload(true);
     }
@@ -23,12 +21,6 @@ function ManageList() {
         API.deleteConcern(id);
         window.location.reload(true);
     }
-
-    // const handleDelete = (evt) => {
-    //     evt.preventDefault();
-    //     API.deleteConcern(oldConcern);
-    //     window.location.reload(true);
-    // }
 
     useEffect(() => {
         API.displayConcerns().then((response) => {
