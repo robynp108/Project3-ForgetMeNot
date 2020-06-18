@@ -42,6 +42,9 @@ function Navbar() {
                                 <a className="navbar-item" href="/managelist">
                                     Manage Concern List
                                 </a>
+                                <a className="navbar-item" href="/qrscanner">
+                                    QR Scanner
+                                </a>
                             </div>
                         </div>
                     </div>

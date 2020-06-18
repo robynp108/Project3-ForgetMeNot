@@ -2,10 +2,12 @@ import React from 'react';
 // import React, { Component } from 'react';
 import QrReader from 'react-qr-scanner';
 import { useHistory } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Navbar from "./Navbar";
 
 function QrScanner() {
     const history = useHistory();
+    const location = useLocation();
 
     const handleScan = (data) => {
         //console.log(data);
@@ -34,6 +36,13 @@ function QrScanner() {
                     />
                 </div>
             </div>
+            <div className="field is-grouped is-grouped-centered">
+          <button className="button is-hsl(271, 100%">
+            <Link to="/home" className={location.pathname === "/home" ? "nav-link active" : "nav-link"} style={{ color: "white" }}>
+              Home
+            </Link>
+          </button>
+        </div>
         </div>
     );
 }
