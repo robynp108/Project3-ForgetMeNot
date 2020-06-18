@@ -1,7 +1,6 @@
+import React from "react";
 import { Link, useLocation } from "react-router-dom";
-
-var React = require('react');
-var QRCode = require('qrcode.react');
+import QRCode from "qrcode.react";
 
 function ConcernQRCode(props) {
     console.log(props);
