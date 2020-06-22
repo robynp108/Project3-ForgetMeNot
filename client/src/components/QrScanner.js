@@ -30,7 +30,7 @@ function QrScanner() {
                         delay={100}
                         onError={handleError}
                         onScan={handleScan}
-                        facingMode="rear"
+                        facingMode={"rear"}
                     />
                 </div>
             </div>
