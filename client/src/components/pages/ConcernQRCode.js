@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import QRCode from "qrcode.react";
+import Navbar from "../Navbar";
 
 function ConcernQRCode(props) {
     console.log(props);
@@ -14,7 +15,9 @@ function ConcernQRCode(props) {
     const location = useLocation();
 
     return (
-        <div class="columns">
+        <div>
+            <Navbar />
+            <div class="columns">
             <div class="column" style={{marginLeft: "100px", marginTop: "100px"}}>
                 <p class="title is-2 is-spaced">{concernName}</p>
             </div>
@@ -22,20 +25,21 @@ function ConcernQRCode(props) {
                 {/* <div className="box" style={{marginLeft: "20px"}}>
                     <QRCode value={protocol + "//" + hostname + ":" + port + "/landingpage/" + concernId} />
                 </div> */}
-                <div className="box" style={{marginLeft: "20px"}}>
+                <div className="box" style={{marginLeft: "20px", maxWidth: "170px"}}>
                     <QRCode value={"landingpage/" + concernId} />
                 </div>
                 <br />
                 <div className="field is-grouped is-grouped-centered">
-                <button className="button is-hsl(271, 100%">
+                {/* <button className="button is-hsl(271, 100%">
                   <Link to="/home" className={location.pathname === "/home" ? "nav-link active" : "nav-link"} style={{color: "white"}}>
                       Home
                   </Link>
-                </button>
+                </button> */}
             </div>
             </div>
             <div class="column"></div>
             <div class="column"></div>
+        </div>
         </div>
     );
 }

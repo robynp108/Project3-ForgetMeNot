@@ -20,8 +20,12 @@ function QrScanner() {
 
     return (
         <div>
+            <Navbar />
             <div className="field is-grouped is-grouped-centered" style={{ marginTop: "50px" }}>
                 <p style={{ fontFamily: "'Kalam', cursive", fontSize: "x-large" }}>Ready to scan!</p>
+            </div>
+            <div className="field is-grouped is-grouped-centered" style={{ marginTop: "50px" }}>
+                <p style={{ fontFamily: "'Kalam', cursive", fontSize: "large" }}>(refresh for rear camera)</p>
             </div>
             <br />
             <div className="field is-grouped is-grouped-centered">
@@ -34,13 +38,14 @@ function QrScanner() {
                     />
                 </div>
             </div>
-            <div className="field is-grouped is-grouped-centered">
-          <button className="button is-hsl(271, 100%">
-            <Link to="/home" className={location.pathname === "/home" ? "nav-link active" : "nav-link"} style={{ color: "white" }}>
-              Home
-            </Link>
-          </button>
-        </div>
+            
+            {/* <div className="field is-grouped is-grouped-centered">
+                <button className="button is-hsl(271, 100%">
+                    <Link to="/home" className={location.pathname === "/home" ? "nav-link active" : "nav-link"} style={{ color: "white" }}>
+                    Home
+                    </Link>
+                </button>
+            </div> */}
         </div>
     );
 }
