@@ -4,7 +4,7 @@ import Start from "./components/pages/Start";
 import Instructions from "./components/pages/Instructions";
 import Home from "./components/pages/Home";
 import ManageList from "./components/pages/ManageList";
-import QrScanner from "./components/QrScanner";
+// import QrScanner from "./components/QrScanner";
 import Signup from "./components/pages/Signup";
 import Login from "./components/pages/Login";
 import LandingPage from "./components/pages/LandingPage";
@@ -20,7 +20,7 @@ function App() {
         <Route path="/login" component={Login} />
         <Route path="/home" component={Home} />
         <Route path="/managelist" component={ManageList} />
-        <Route path="/qrscanner" component={QrScanner} />
+        {/* <Route path="/qrscanner" component={QrScanner} /> */}
         <Route path="/landingpage/:id" component={LandingPage} />
         <Route path="/concernqrcode/:name/:id" component={ConcernQRCode} />
       </div>

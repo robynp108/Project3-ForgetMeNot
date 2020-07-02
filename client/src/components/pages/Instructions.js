@@ -18,10 +18,9 @@ function Home() {
                         <li>3. The concern will appear on the list with a link to a QR Code on the left and an "X" to delete if desired.</li>
                         <li>4. Click “QR Code” to see a page with that concern’s QR Code.</li>
                         <li>5. Print the code and tape it on or near the item of concern.</li>
-                        <li>6. Whenever you do the task, just scan the code with our built-in QR scanner (you may need to refresh the page to have it switch to rear facing camera), go to that
-                            website, and you’ll see a page telling you the scan was successful.</li>
-                        <li>7. Use the Home button to return to your Home page and you will see the time recorded on
-                            your home page list!</li>
+                        <li>6. Whenever you do the task, just scan the code with any qr scanning app, then navigate to the url it finds and you’ll see a page telling you the scan was successful.</li>
+                        <li>7. Return to your Home page and you will see the time recorded on
+                            your concern list!</li>
                         <li>8. Leave a window open on the home page to quickly see your list anytime.</li>
                     </ul>
                 </div>

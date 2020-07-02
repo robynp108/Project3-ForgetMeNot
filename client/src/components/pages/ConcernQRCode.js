@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+// import { Link, useLocation } from "react-router-dom";
 import QRCode from "qrcode.react";
 import Navbar from "../Navbar";
 
@@ -12,7 +12,7 @@ function ConcernQRCode(props) {
     const hostname = window.location.hostname;
     const port = window.location.port;
 
-    const location = useLocation();
+    // const location = useLocation();
 
     return (
         <div>
@@ -22,12 +22,12 @@ function ConcernQRCode(props) {
                 <p class="title is-2 is-spaced">{concernName}</p>
             </div>
             <div class="column is-2 is v-centered" style={{marginLeft: "100px", marginTop: "100px"}}>
-                {/* <div className="box" style={{marginLeft: "20px"}}>
+                <div className="box" style={{marginLeft: "20px"}}>
                     <QRCode value={protocol + "//" + hostname + ":" + port + "/landingpage/" + concernId} />
-                </div> */}
-                <div className="box" style={{marginLeft: "20px", maxWidth: "170px"}}>
-                    <QRCode value={"landingpage/" + concernId} />
                 </div>
+                {/* <div className="box" style={{marginLeft: "20px", maxWidth: "170px"}}>
+                    <QRCode value={"landingpage/" + concernId} />
+                </div> */}
                 <br />
                 <div className="field is-grouped is-grouped-centered">
                 {/* <button className="button is-hsl(271, 100%">
