@@ -68,9 +68,9 @@ function Navbar() {
                                 <a className="navbar-item" href="/managelist">
                                     Manage Concern List
                                 </a>
-                                <a className="navbar-item" href="/qrscanner">
+                                {/* <a className="navbar-item" href="/qrscanner">
                                     QR Scanner
-                                </a>
+                                </a> */}
                             </div>
                         </div>
                     </div>
